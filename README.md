@@ -1,100 +1,49 @@
-[![Build Status][build-shield]][build-url]
-[![npm][npm-shield]][npm-url]
-[![npm downloads][npm-dl-shield]][npm-dl-url]
-[![Contributors][contributors-shield]][contributors-url]
-[![Apache 2.0 License][license-shield]][license-url]
+# use-realm
 
-<!-- PROJECT LOGO -->
-<br />
-<p align="center">
-  <a href="https://github.com/kpilens/rjsf-chakra-ui">
-    <img src="./logo.png" alt="Logo" width="240">
-  </a>
+Manage state in your react app using realms that can be shared within components, this is a small utilily library that enables you share state within your apps without the heavy lifting of reducers, context and other complex state management libraries, `use-realm` is **WIP** and best used within small projects.
 
-  <h3 align="center">@kpilens/rjsf-chakra-ui</h3>
+---
 
-  <p align="center">
-  Chakra UI theme, fields and widgets for <a href="https://github.com/rjsf-team/react-jsonschema-form/"><code>react-jsonschema-form</code></a>.
-    <br />
-    <a href="https://react-jsonschema-form.readthedocs.io/en/latest/"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://rjsf-team.github.io/react-jsonschema-form/">View Playground</a>
-    ·
-    <a href="https://github.com/rjsf-team/react-jsonschema-form/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/rjsf-team/react-jsonschema-form/issues">Request Feature</a>
-  </p>
-</p>
+## Install
 
-<!-- TABLE OF CONTENTS -->
+`yarn add use-realm`
 
-## Table of Contents
+## How to use
 
-- [Table of Contents](#table-of-contents)
-- [About The Project](#about-the-project)
-  - [Built With](#built-with)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [Linking in Monorepo](#linking-in-monorepo)
+Use realm exposes a simple API, where you can utilize `useRealm` and `createRealm` to share state values across your components.
 
-<!-- ABOUT THE PROJECT -->
+- _useRealm_, manages the values within the realm that needs to be tracked.
+- _createRealm_, is an utility method that exposes a react hook which handles **reading** the values within a realm and **dispatching** actions within that realm. There are no restrictions to how many components that are allowed to dispatch actions within a realm at a given point in time, however it's advisable to only dispatch from a single source and share values across multiple components.
 
-## About The Project
-
-[![@rjsf/chakra-ui Screen Shot][product-screenshot]](https://rjsf-team.github.io/@rjsf/chakra-ui)
-
-Exports `chakra-ui` theme, fields and widgets for `react-jsonschema-form`.
-
-### Built With
-
-- [react-jsonschema-form](https://github.com/rjsf-team/react-jsonschema-form/)
-- [Chakra UI](https://chakra-ui.com/)
-- [TypeScript](https://www.typescriptlang.org/)
-
-<!-- GETTING STARTED -->
-
-## Getting Started
-
-### Prerequisites
-
-- `@chakra-ui/core >= 1.0.0`
-- `react >= 16.0.0`
-- `@rjsf/core >= 2.0.0`
-
-```bash
-yarn add @chakra-ui/core@next
-```
-
-### Installation
-
-```bash
-yarn add @kpilens/rsjf-chakra-ui @rsjf/core
-```
-
-<!-- USAGE EXAMPLES -->
-
-## Usage
+Here is a simple example
 
 ```js
-import Form from '@kpilens/rjsf-chakra-ui';
+/* constants.js
+This can be any file within your components directory */
+export const COUNTER = createRealm(0);
 ```
 
-or
+```jsx
+import React from 'react';
+import { createRealm, useRealm } from 'use-realm';
+import { COUNTER } from './constants';
 
-```js
-import { withTheme } from '@rjsf/core';
-import { Theme as ChakraUITheme } from '@kpilens/rjsf-chakra-ui';
-
-// Make modifications to the theme with your own fields and widgets
-
-const Form = withTheme(ChakraUITheme);
+export default function App() {
+  const [state, setState] = useRealm(COUNTER);
+  return (
+    <React.Fragment>
+      <h2>Use Realm Example</h2>
+      <h1>{state}</h1>
+      <button onClick={() => setState(state + 1)}>+</button>
+      <button onClick={() => setState(state - 1)} disabled={state === 0}>
+        -
+      </button>
+    </React.Fragment>
+  );
+}
 ```
 
-<!-- ROADMAP -->
+## Todo
 
-## Linking in Monorepo
-
-`package.json` main script refers to `dist/index.js` and as such this project has to be built before it can be used as a module in other packages. This can work if we embrace story book for component design and development, else the `main` script entry point can be modified to point to the `src/index.tsx` file directly as the reference module.
+- [ ] Use Many Realms to compose multiple realms (cookbook)
+- [ ] Documentation Site to document `props, cookbooks and examples`
