@@ -1,6 +1,6 @@
 {
   "name": "use-realm",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Easy way to share state among react components using realms",
   "module": "dist/use-realm.esm.js",
   "main": "dist/index.js",
