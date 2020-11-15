@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/koolamusic/realmjs.git"
+    "url": "git+https://github.com/koolamusic/use-realm.git"
   },
   "peerDependencies": {
     "react": "^17.0.1",
@@ -52,7 +52,7 @@
   "author": "Andrew Miracle",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/koolamusic/realmjs/issues"
+    "url": "https://github.com/koolamusic/use-realm/issues"
   },
-  "homepage": "https://github.com/koolamusic/realmjs#readme"
+  "homepage": "https://github.com/koolamusic/use-realm#readme"
 }
