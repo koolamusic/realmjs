@@ -1,0 +1,57 @@
+{
+  "name": "realmjs",
+  "version": "1.0.0",
+  "description": "Easy way to share state among react components using realms",
+  "module": "dist/chakra-ui.esm.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "rimraf dist && tsdx build",
+    "test": "tsdx test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koolamusic/realmjs.git"
+  },
+  "peerDependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "@types/react": "^16.9.56",
+    "@types/react-dom": "^16.9.9",
+    "@types/react-test-renderer": "^16.9.2",
+    "@types/sinon": "^9.0.0",
+    "jest": "^26.6.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-test-renderer": "^16.13.1",
+    "rimraf": "^2.6.3",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.0.3",
+    "typescript": "^4.0.5"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "realms",
+    "redux",
+    "react",
+    "hooks",
+    "react-hooks",
+    "state",
+    "context"
+  ],
+  "author": "Andrew Miracle",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/koolamusic/realmjs/issues"
+  },
+  "homepage": "https://github.com/koolamusic/realmjs#readme"
+}
