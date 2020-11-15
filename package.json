@@ -2,7 +2,7 @@
   "name": "use-realm",
   "version": "1.1.0",
   "description": "Easy way to share state among react components using realms",
-  "module": "dist/chakra-ui.esm.js",
+  "module": "dist/use-realm.esm.js",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
@@ -15,8 +15,7 @@
     "url": "git+https://github.com/koolamusic/use-realm.git"
   },
   "peerDependencies": {
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react": ">= 16.8.1"
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
