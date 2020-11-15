@@ -1,5 +1,5 @@
 {
-  "name": "realmjs",
+  "name": "use-realm",
   "version": "1.0.0",
   "description": "Easy way to share state among react components using realms",
   "module": "dist/chakra-ui.esm.js",
