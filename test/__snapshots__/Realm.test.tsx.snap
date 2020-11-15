@@ -1,7 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`realm  it renders 1`] = `
-<div>
-  I am a realm
-</div>
+Array [
+  <h1>
+    Use Realm Example
+  </h1>,
+  <h3>
+    0
+  </h3>,
+  <section>
+    <button
+      onClick={[Function]}
+    >
+      +
+    </button>
+    <button
+      disabled={true}
+      onClick={[Function]}
+    >
+      -
+    </button>
+  </section>,
+]
 `;
