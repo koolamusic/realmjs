@@ -2,9 +2,6 @@ import { useState, useMemo } from 'react';
 import { useEffect } from 'react';
 
 
-// type TValue = string | string[] | number[] | undefined | number | boolean
-
-
 export interface RealmStoreProps<T extends unknown> {
     get(): T;
     set: (newValue: T) => void;
