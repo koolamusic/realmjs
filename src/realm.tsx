@@ -2,10 +2,10 @@ import { useState, useMemo } from 'react';
 import { useEffect } from 'react';
 
 
-type TValue = string | string[] | number[] | undefined | number | boolean
+// type TValue = string | string[] | number[] | undefined | number | boolean
 
 
-export interface RealmStoreProps<T extends TValue> {
+export interface RealmStoreProps<T extends unknown> {
     get(): T;
     set: (newValue: T) => void;
     subscribe: (listenerFunc: Function) => void;
@@ -27,7 +27,7 @@ const useMount = (cb: TMountCallback) =>
 /* -------------------------------------------------------------------------- */
 /*                             useRealm                                       */
 /* -------------------------------------------------------------------------- */
-export const useRealm = <T extends TValue>(store: RealmStoreProps<T>): [T, Function] => {
+export const useRealm = <T extends unknown>(store: RealmStoreProps<T>): [T, Function] => {
     const [state, setGlobal] = useState<T>(store.get());
 
     useMount(() => {
@@ -46,7 +46,7 @@ export const useRealm = <T extends TValue>(store: RealmStoreProps<T>): [T, Funct
 /*                             createRealm                                    */
 /* -------------------------------------------------------------------------- */
 
-export const createRealm = <T extends TValue>(initialData: T): RealmStoreProps<T> => {
+export const createRealm = <T extends unknown>(initialData: T): RealmStoreProps<T> => {
     let listeners: Function[] = [];
     let value = initialData;
 
